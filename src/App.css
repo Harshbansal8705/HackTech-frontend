@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.Card{
+  border: solid;
+  display: block;
+  margin:auto;
+  margin-top: 10vh;
+  width: 60%;
+  background:#282c34;
+  border-radius: 20vh;  
+  /* max-height: min-content; */
+}

@@ -11,7 +11,8 @@ const LandingPage = ()=>{
        <>
        {/* <h1>landingpage</h1> */}
        <Navbar/>
-       {/* <Description/> */}
+       <Description/>
+       
        {/* <h1 >hiiii</h1> */}
        
        
