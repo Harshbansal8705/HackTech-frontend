@@ -1,5 +1,5 @@
 import react from "react";
-
+import "../components/styles/landingpage.css"
 
 const LandingPage = ()=>{
 
