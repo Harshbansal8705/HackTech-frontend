@@ -15,15 +15,24 @@ let user_depart =  "../images/roll/depart";
 
 export default function Register2(){
 
-    function handleSubmit(){
+function handleOTP(){
+
+}
+
+    async function handleRegSubmit(){
+setModal(false);
 
     }
+    async function handleLogInSubmit(){
+        setModal(false);
+    }
+
     function handleLogIn(){
 if(action!="LogIn"){
     setAction("LogIn");
 }
 else{
-    handleSubmit();
+    handleLogInSubmit();
 }
     }
 
@@ -32,14 +41,16 @@ else{
             setAction("Register");
         }
         else{
-            handleSubmit();
+            handleRegSubmit();
         }
     }
+
+    const[modal, setModal]=useState(true);
     const[action, setAction] = useState("Register");
     return(<>
-    <div className="reg-conatiner">
+    {modal && <div className="reg-conatiner">
         <div className="reg-header">
-            <div className="reg-text">Register</div>
+            <div className="reg-text">{action}</div>
             <div className="reg-underline"></div>
         </div>
         <div className="reg-inputs">
@@ -69,6 +80,21 @@ else{
             <div className={action==="LogIn"?"reg-submit gray":"reg-submit"} onClick={handleRegister}>Register</div>
             <div className={action==="Register"?"reg-submit gray":"reg-submit"} onClick={handleLogIn}>LogIn</div>
         </div>
-    </div>
+    </div> }
+
+    {!modal && <div className="otp-body"><div className="otp-container">
+        <h4 className="otp-h4">Enter your 4 digit OTP</h4>
+        <form action="#"> 
+        <div className="otp-input-fields">
+            <input type="number"/>
+            <input type="number" />
+            <input type="number" />
+            <input type="number"/>
+        </div>
+
+        <button className="otp-submit" onClick={handleOTP}>Verify OTP</button>
+        </form>
+        </div></div>}
+    
     </>)
 }
