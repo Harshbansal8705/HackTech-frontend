@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./styles/register.css"
+// import "./styles/register.css"
 import { useFormik } from "formik";
 import * as Yup from "yup";
 // import "yup-phone";
