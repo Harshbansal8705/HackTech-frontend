@@ -15,7 +15,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 export default function Navbar() {
     return (
         // <div display="block">
-        <Box sx={{ flexGrow: 1}}>
+        <Box className="navbar" sx={{ flexGrow: 1}}>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton
@@ -49,3 +49,5 @@ export default function Navbar() {
         // </div>
     );
 }
+
+
