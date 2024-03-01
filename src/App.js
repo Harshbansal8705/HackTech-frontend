@@ -3,6 +3,8 @@ import './App.css';
 import LandingPage from './components/landingpage.jsx';
 import { Routes, Route } from "react-router-dom";
 import Dashboard from './components/Dashboard.jsx';
+// import Register from './components/register.jsx';
+import { BrowserRouter } from 'react-router-dom';
 import Register2 from "./components/register2.jsx";
 
 function App() {
