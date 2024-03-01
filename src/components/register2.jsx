@@ -15,16 +15,24 @@ let user_depart =  "../images/roll/depart";
 
 export default function Register2(){
 
-function handleOTP(){
+function handleOTP(e){
 
 }
 
-    async function handleRegSubmit(){
+    async function handleRegSubmit(e){
 setModal(false);
+e.preventDefault();
+try{
+
+} catch(error){
+    
+}
+
 
     }
-    async function handleLogInSubmit(){
+    async function handleLogInSubmit(e){
         setModal(false);
+        e.preventDefault(false);
     }
 
     function handleLogIn(){
