@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.profile-details, div.academic-details {
+    background: #296DD04D;
+    width: fit-content;
+}
+
+div.profile-details img {
+    border: 4px solid #296DD0
+}
+
+h1 {
+    display: inline-block;
+    border-bottom: 2px solid black;
+    border-width: 0 0 2px 0;
+    padding-bottom: 1px;
+}
+
+span.tag {
+    background: #296DD0CC;
+    color: white;
+    font-weight: 400;
+    padding: 0.2rem 0.4rem;
+}
+
+@media screen and (max-width: 800px){
+    div.cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
