@@ -1,5 +1,5 @@
 import react from "react";
-import "../components/styles/register.css";
+// import "../components/styles/register.css";
 
 
 const Register = ()=>{

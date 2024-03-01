@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import LandingPage from './components/landingpage.jsx';
+import LandingPage from './components/landingpage';
 import { Routes, Route } from "react-router-dom";
 import Register from './components/register.jsx';
 import { BrowserRouter } from 'react-router-dom';
