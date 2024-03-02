@@ -50,7 +50,7 @@ export default function Register() {
                 method: "POST",
                 headers: {
                      "Content-Type": "application/json"
-                },
+                },  
                 body: JSON.stringify({email})
               }).then(res => res.json()).then(data => {
                 console.log(data);
@@ -69,7 +69,7 @@ export default function Register() {
     <>
       <div className="">
         <div className="reg-header">
-          <div className="reg-text">register</div>
+          <div className="reg-text">Register</div>
           <div className="reg-underline"></div> 
          </div>
         <div className="flex flex-col justify-center items-center gap-7 m-10">
