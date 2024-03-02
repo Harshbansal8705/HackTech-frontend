@@ -87,15 +87,11 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            <div className="tabs flex justify-evenly mt-10">
-                <button className={`tab ${tab == "recommender" && "underline"}`} onClick={() => setTab("recommender")}>Breadth Selector</button>
-                <button className={`tab ${tab == "performance" && "underline"}`} onClick={() => setTab("performance")}>Performance</button>
-            </div>
-
-            {tab == "performance" && <Performance />}
+            
+          
         </main>
         <BreadthSelector />
-        <RecommendedBreadthCourses />
+        
         </>
     )
 }

@@ -82,6 +82,7 @@ const authSlice = createSlice({
         })
         builder.addCase(loginWithOtpAsync.fulfilled, (state, action) => {
             state.state = "idle";
+            localStorage.setItem("user", action.payload.user)
             state.user = action.payload.user;
             state.registered = true;
         })
