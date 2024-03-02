@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+.RecommendedCourses{
+  diplay : block;
+  text-align: center;
+  margin: 2vh 5vw ;
+}
+
+.RecommendedCourses .table{
+  display: block;
+  border: solid black;
+  border-radius: 10px;
+}
+
+.RecommendedCourses .table ul{
+  list-style: none;
+}
+
+.RecommendedCourses .table .heading{
+  font-weight: bold;
+  display:flex;
+  justify-content:space-between;
+  /* background-color: #b5b6b9; */
+}
+
+.RecommendedCourses .table .courses{
+  display: block;
+  border-top:grey groove 1px;
+}
+
+.RecommendedCourses .table .courses ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+.RecommendedCourses .table li{
+  margin: 1vh 1vw  ;
+}
+
+
+

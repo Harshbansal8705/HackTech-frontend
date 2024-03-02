@@ -12,6 +12,8 @@ function App() {
             <Route index path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/register" element={<Register />} />
+            <Route path="register2" element={<Register2 />} />
+            <Route path="/recommended" element={<RecommendedBreadthCourses />} />
         </Routes>
     );
 }
