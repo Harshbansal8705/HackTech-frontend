@@ -3,16 +3,15 @@ import './App.css';
 import LandingPage from './components/landingpage.jsx';
 import { Routes, Route } from "react-router-dom";
 import Dashboard from './components/Dashboard.jsx';
-// import Register from './components/register.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import Register2 from "./components/register2.jsx";
+
+import Register from "./components/register.jsx";
 
 function App() {
     return (
         <Routes>
             <Route index path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="register2" element={<Register2 />} />
+            <Route path="/register" element={<Register />} />
         </Routes>
     );
 }
