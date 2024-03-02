@@ -13,15 +13,20 @@ const LandingPage = () => {
             </h1>
           </pre>
 
-          <p className="text-landingpage">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore .
-          </p>
-
+          <div className="para">The current breadth selection process at IIT Kharagpur is often chaotic and stressful
+                    for students. The high demand for specific breadth courses, coupled with limited
+                    availability, leads to a last-minute scramble during subject registration. Students
+                    often face difficulty in choosing the right breadth based on various factors such as:
+                    <ul>
+                        <li> Academic performance</li>
+                        <li> Career goals</li>
+                        <li> Personal interests</li>
+                        <li> Course difficulty</li>
+                    </ul>
+                    This can result in hasty decisions that may not be in the student's best academic or
+                    career interests. So here our website to all solve this problem.
+                </div>
+        
           <Link to={"/register"}><button className="get-started">Get Started</button></Link>
         </div>
       </div>
@@ -30,3 +35,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+

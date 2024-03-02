@@ -3,7 +3,8 @@ import "./styles/register2.css";
 import departIcon from "../images/depart.png";
 import Input from "./Input";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { loginWithOtpAsync } from "../auth/authSlice";
 
 
 
@@ -11,6 +12,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function Verification() {
   const [otp , setOtp ] = useState("");
   const location = useLocation();
+  const dispatch = useDispatch();
   const email = location.state.email;
   const isSignUp = location.state.isSignUp;
   const navigate = useNavigate();
@@ -41,26 +43,34 @@ export default function Verification() {
           }
           else{
               e.preventDefault();
-           fetch(process.env.REACT_APP_BACKEND_URL + "login/verify", {
-                method: "POST",
-                headers: {
-                     "Content-Type": "application/json"
-                },
-                body: JSON.stringify({email : email , otp : otp})
-              }).then(res => res.json()).then(data => {
-                console.log(data);
-                if(data.error){
-                     alert(data.error);
-                }else{
-                  if(data.success === true){
-                     navigate("/dashboard" ) ;
-                }
-                else{
-                  alert("Invalid OTP");
-                }
+              const res = dispatch(loginWithOtpAsync({email , otp}));
+              console.log(res);
+              if(res.error){
+                  alert(res.error);
               }
+              else{
+                  navigate("/dashboard");
+              }
+          //  fetch(process.env.REACT_APP_BACKEND_URL + "login/verify", {
+          //       method: "POST",
+          //       headers: {
+          //            "Content-Type": "application/json"
+          //       },
+          //       body: JSON.stringify({email : email , otp : otp})
+          //     }).then(res => res.json()).then(data => {
+          //       console.log(data);
+          //       if(data.error){
+          //            alert(data.error);
+          //       }else{
+          //         if(data.success === true){
+          //            navigate("/dashboard" ) ;
+          //       }
+          //       else{
+          //         alert("Invalid OTP");
+          //       }
+          //     }
            
-            })
+          //   })
           }
 
         }

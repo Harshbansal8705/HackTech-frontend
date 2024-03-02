@@ -1,8 +1,12 @@
 import React from 'react'
 import "./styles.css";
 import Profile from "../assets/profile.png";
+import Navbar from './navbar';
+import RecommendedBreadthCourses from './recommendedBreadth';
+import BreadthSelector from './selector';
+import { useSelector } from 'react-redux';
 
-const user = {
+var user = {
     name: 'Harsh Bansal',
     email: "harshbansal8705@gmail.com",
     rollNo: "22CH10080",
@@ -26,9 +30,31 @@ function getAcademicYear() {
         return `${year}-${(year + 1) % 100}`; // e.g., 2024-2025
     }
 }
+//  async function getUser (){
+//     await fetch(process.env.REACT_APP_BACKEND_URL + "user", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Authorization": `Bearer ${localStorage.getItem("token")}`
+//         }
+//     }).then(res => res.json()).then(data => {
+//         console.log(data);
+//         if(data.error){
+//             alert(data.error);
+//         }else{
+//             return data;
+//         }
+    
+//     })
+//  }
+ 
 
 export default function Dashboard() {
+   const  user = useSelector(state => state.auth.user);
+   console.log(user)
     return (
+        <>
+        <Navbar />
         <main className='py-10 px-20'>
             {/* <div>
                 <div className="academic-year">Academic Year: <span className='bg-slate-300 p-1'>{getAcademicYear()}</span></div>
@@ -59,5 +85,8 @@ export default function Dashboard() {
                 </div>
             </div>
         </main>
+        <BreadthSelector />
+        <RecommendedBreadthCourses />
+        </>
     )
 }

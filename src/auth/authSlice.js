@@ -32,7 +32,29 @@ export const signupWithOtpAsync = createAsyncThunk(
         }
     }
 )
+export const loginWithOtpAsync = createAsyncThunk(
+    "login",
+    async (data) => {
+        try {
+            const res = await fetch(process.env.REACT_APP_BACKEND_URL + "login/verify", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
 
+            })
+            if (!res.ok) {
+                const r = await res.json();
+                throw new Error(r.error);
+
+            }
+            return await res.json();
+        } catch (e) {
+            throw new Error(e.message);
+        }
+    } 
+)
 const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -52,6 +74,18 @@ const authSlice = createSlice({
             state.registered = true;
         })
         builder.addCase(signupWithOtpAsync.rejected, (state, action) => {
+            state.state = "idle";
+            state.user = "null";
+        })
+        builder.addCase(loginWithOtpAsync.pending, (state, action) => {
+            state.state = "loading";
+        })
+        builder.addCase(loginWithOtpAsync.fulfilled, (state, action) => {
+            state.state = "idle";
+            state.user = action.payload.user;
+            state.registered = true;
+        })
+        builder.addCase(loginWithOtpAsync.rejected, (state, action) => {
             state.state = "idle";
             state.user = "null";
         })

@@ -57,7 +57,7 @@ export default function Register() {
                 if(data.error){
                      alert(data.error);
                 }else{
-                     navigate("/register/verify", {state: {email, isSignUp: true}});
+                     navigate("/register/verify", {state: {email : email, isSignUp: true}});
                 }
               }
            )
@@ -82,6 +82,9 @@ export default function Register() {
           </form>
             <button onClick={(e) => handleSubmit(e)} className="bg-black w-1/5 m-3 p-4 rounded-md text-white">{isEmailVerified ? "Signup" : "Verify"}</button>
          
+        </div>
+        <div className="flex justify-center">
+          <a href="/login" className="text-center text-2xl underline"> login </a>
         </div>
       </div>
     </>
