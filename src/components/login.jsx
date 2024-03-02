@@ -27,7 +27,7 @@ export default function Login(){
     return(
         <>
         <div className="reg-header">
-          <div className="reg-text">login</div>
+          <div className="reg-text">Login</div>
           <div className="reg-underline"></div> 
          </div>
         <div className="flex flex-col justify-center items-center gap-7 m-10">
