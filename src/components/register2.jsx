@@ -4,6 +4,7 @@ import user from "../images/person.png";
 import email from "../images/email.png";
 import rollno from "../images/rollno.png";
 import depart from "../images/depart.png";
+import Input from "./Input";
 
 
 let user_icon = "../images/person.pnng";
@@ -66,6 +67,8 @@ else{
                 <img src={user} alt="" />
                 <input type="text" placeholder="Full Name"/>
             </div>}
+
+            <Input placeholder="Institute Email" type="email" icon={email} />
            
 
             <div className="reg-input">
