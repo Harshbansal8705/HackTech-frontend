@@ -7,7 +7,7 @@ import landingimg from '../images/sysadmin_03.jpg';
 const LandingPage = () => {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
       <div className="container-landingpage">
         <div className="left-landingpage">
           <pre>
