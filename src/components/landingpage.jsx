@@ -22,7 +22,7 @@ const LandingPage = () => {
             labore .
           </p>
 
-          <Link to={"/register2"}><button className="get-started">Get Started</button></Link>
+          <Link to={"/register"}><button className="get-started">Get Started</button></Link>
         </div>
       </div>
     </>
