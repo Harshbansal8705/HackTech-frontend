@@ -5,6 +5,7 @@ import Navbar from './navbar';
 import RecommendedBreadthCourses from './recommendedBreadth';
 import BreadthSelector from './selector';
 import { useSelector } from 'react-redux';
+import Performance from './Performance';
 
 var user = {
     name: 'Harsh Bansal',
@@ -52,6 +53,7 @@ function getAcademicYear() {
 export default function Dashboard() {
    const  user = useSelector(state => state.auth.user);
    console.log(user)
+    const [tab, setTab] = React.useState("performance")
     return (
         <>
         <Navbar />
@@ -84,6 +86,13 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
+
+            <div className="tabs flex justify-evenly mt-10">
+                <button className={`tab ${tab == "recommender" && "underline"}`} onClick={() => setTab("recommender")}>Breadth Selector</button>
+                <button className={`tab ${tab == "performance" && "underline"}`} onClick={() => setTab("performance")}>Performance</button>
+            </div>
+
+            {tab == "performance" && <Performance />}
         </main>
         <BreadthSelector />
         <RecommendedBreadthCourses />
