@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import "./styles/register2.css";
 import userIcon from "../images/person.png";
 import emailIcon from "../images/email.png";
 import rollnoIcon from "../images/rollno.png";
 import departIcon from "../images/depart.png";
 import Input from "./Input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signupWithOtpAsync } from "../auth/authSlice";
 
 
@@ -18,15 +18,35 @@ export default function Register() {
     const [rollNo, setRollNo] = useState("");
     const [department, setDepartment] = useState("");
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
+    const location = useLocation();
+    const registered = useSelector(state => state.auth.registered)
+    
     const [isEmailVerified, setIsEmailVerified] = useState(false);
-    function handleSubmit(e){
+    useEffect(() => {
+     setIsEmailVerified(location.state?.isEmailVerified);
+     setEmail(location.state?.email);
+    }, [location.state]);
+
+    useEffect(() => {
+        if(registered){
+            navigate("/login");
+        }
+    }, [])
+    async function handleSubmit(e){
         e.preventDefault();
         
         if(isEmailVerified){
-            dispatch(signupWithOtpAsync({name, email, rollNo, department}));
+          const res =  dispatch(signupWithOtpAsync({name, email, rollNo, department}));
+          console.log(res);
+          if(res.error){
+              alert(res.error);
+          }
+          else{
+              navigate("/login");
+          }
         }else{
-           fetch(process.env.REACT_APP_BACKEND_URL + "register/otp", {
+           await fetch(process.env.REACT_APP_BACKEND_URL + "register/otp", {
                 method: "POST",
                 headers: {
                      "Content-Type": "application/json"
@@ -37,7 +57,7 @@ export default function Register() {
                 if(data.error){
                      alert(data.error);
                 }else{
-                     setIsEmailVerified(true);
+                     navigate("/register/verify", {state: {email, isSignUp: true}});
                 }
               }
            )
