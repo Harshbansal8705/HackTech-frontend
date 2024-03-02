@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard.jsx';
 import Register from "./components/register.jsx";
 import Verification from './components/verification.jsx';
 import Login from './components/login.jsx';
+import Performance from './components/Performance.jsx';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/register/verify" element={<Verification />} />
             <Route path="/register" element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path="/performance" element={<Performance />} />
         </Routes>
     );
 }

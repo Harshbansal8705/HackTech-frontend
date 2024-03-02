@@ -1,6 +1,7 @@
 import React from 'react'
 import "./styles.css";
 import Profile from "../assets/profile.png";
+import Performance from './Performance';
 
 const user = {
     name: 'Harsh Bansal',
@@ -28,6 +29,7 @@ function getAcademicYear() {
 }
 
 export default function Dashboard() {
+    const [tab, setTab] = React.useState("performance")
     return (
         <main className='py-10 px-20'>
             {/* <div>
@@ -58,6 +60,13 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
+
+            <div className="tabs flex justify-evenly mt-10">
+                <button className={`tab ${tab == "recommender" && "underline"}`} onClick={() => setTab("recommender")}>Breadth Selector</button>
+                <button className={`tab ${tab == "performance" && "underline"}`} onClick={() => setTab("performance")}>Performance</button>
+            </div>
+
+            {tab == "performance" && <Performance />}
         </main>
     )
 }
